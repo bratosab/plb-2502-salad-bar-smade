@@ -1,5 +1,5 @@
 <ul>
-  <li *ngFor="let topping of toppings">
+  <li *ngFor="let topping of toppings" (click)="chooseTopping(topping)">
     {{ topping.name }} ({{ topping.price | currency:'€' }})
   </li>
 </ul>

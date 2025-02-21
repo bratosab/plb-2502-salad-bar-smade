@@ -1,3 +1,16 @@
 <p>Welcome {{ orderService.name }} !</p>
 
-<app-toppings [toppings]="toppings" />
+<!-- <app-toppings [toppings]="toppings" /> -->
+<app-toppings
+  *ngIf="toppings$ | async as toppings; else loading"
+  [toppings]="toppings"
+  (toppingSelected)="toppingSelected($event)"
+/>
+
+<ng-template #loading>Loading Toppings...</ng-template>
+
+<p>Total Price : {{ toppingsService.totalPrice | currency:'€' }}</p>
+<app-toppings
+  [toppings]="toppingsService.chosenToppings"
+  (toppingSelected)="toppingDeselected($event)"
+/>

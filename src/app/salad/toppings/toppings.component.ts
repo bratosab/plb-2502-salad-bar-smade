@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Topping } from '../../models/topping.model';
 
 @Component({
@@ -10,4 +10,11 @@ import { Topping } from '../../models/topping.model';
 export class ToppingsComponent {
   @Input()
   toppings: Topping[] = [];
+
+  @Output()
+  toppingSelected = new EventEmitter<Topping>();
+
+  public chooseTopping(topping: Topping) {
+    this.toppingSelected.emit(topping);
+  }
 }
