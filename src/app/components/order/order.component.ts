@@ -1,6 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { OrderService } from '../../services/order.service';
 
 @Component({
   selector: 'app-order',
@@ -11,6 +12,7 @@ import { Router } from '@angular/router';
 export class OrderComponent {
   public orderForm: FormGroup;
   private router = inject(Router);
+  private orderService = inject(OrderService);
 
   constructor(fb: FormBuilder) {
     this.orderForm = fb.group({
@@ -21,6 +23,8 @@ export class OrderComponent {
 
   public startOrder() {
     if (this.orderForm.valid) {
+      this.orderService.name = this.orderForm.value.name;
+      this.orderService.tel = this.orderForm.value.tel;
       this.router.navigate(['salad']);
     }
   }

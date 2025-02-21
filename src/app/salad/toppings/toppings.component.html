@@ -1,1 +1,5 @@
-<p>toppings works!</p>
+<ul>
+  <li *ngFor="let topping of toppings">
+    {{ topping.name }} ({{ topping.price | currency:'€' }})
+  </li>
+</ul>

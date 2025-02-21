@@ -9,22 +9,18 @@ import { KitchenModule } from './kitchen/kitchen.module';
 import { OrderComponent } from './components/order/order.component';
 import { SharedMaterialModule } from './shared-material.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { provideHttpClient } from '@angular/common/http';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    OrderComponent
-  ],
+  declarations: [AppComponent, OrderComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
     SaladModule,
     SharedMaterialModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
-  providers: [
-    provideAnimationsAsync()
-  ],
-  bootstrap: [AppComponent]
+  providers: [provideAnimationsAsync(), provideHttpClient()],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
