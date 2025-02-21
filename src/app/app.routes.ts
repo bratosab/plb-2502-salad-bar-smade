@@ -7,5 +7,6 @@ export const appRoutes: Routes = [
     path: 'kitchen',
     loadComponent: () =>
       import('./kitchen/kitchen.component').then((m) => m.KitchenComponent),
+    children: []
   },
 ];

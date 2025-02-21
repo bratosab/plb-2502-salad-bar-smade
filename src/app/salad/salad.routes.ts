@@ -5,7 +5,7 @@ import { saladGuard } from "./salad.guard";
 export const saladRoutes: Routes = [
   {
     path: 'salad', 
-    component: SaladComponent,
+    loadComponent: () => import('./salad.component').then(c => c.SaladComponent),
     canActivate: [saladGuard]
   },
 ];
