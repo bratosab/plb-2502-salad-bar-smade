@@ -23,8 +23,8 @@ export class OrderComponent {
 
   public startOrder() {
     if (this.orderForm.valid) {
-      this.orderService.name = this.orderForm.value.name;
-      this.orderService.tel = this.orderForm.value.tel;
+      this.orderService.name.set(this.orderForm.value.name);
+      this.orderService.tel.set(this.orderForm.value.tel);
       this.router.navigate(['salad']);
     }
   }

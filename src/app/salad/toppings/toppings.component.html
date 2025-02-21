@@ -1,5 +1,7 @@
 <ul>
-  <li *ngFor="let topping of toppings" (click)="chooseTopping(topping)">
-    {{ topping.name }} ({{ topping.price | currency:'€' }})
+  @for (topping of toppings(); track topping.id) {
+  <li (click)="chooseTopping(topping)">
+    {{ topping.name }} ({{ topping.price | currency : "€" }})
   </li>
+  }
 </ul>

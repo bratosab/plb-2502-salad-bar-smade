@@ -1,11 +1,14 @@
-import { Injectable } from '@angular/core';
+import { Injectable, signal } from '@angular/core';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class OrderService {
-  public name: string = '';
-  public tel: string = '';
+  // public name: string = '';
+  // public tel: string = '';
 
-  constructor() { }
+  public name = signal<string>('');
+  public tel = signal<string>('');
+
+  constructor() {}
 }
