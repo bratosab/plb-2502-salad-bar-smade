@@ -1,1 +1,14 @@
-<p>order works!</p>
+<form [formGroup]="orderForm" (ngSubmit)="startOrder()">
+    <mat-form-field>
+        <mat-label>Name</mat-label>
+        <input matInput type="text" formControlName="name" />
+        <mat-error>Can you tell me your name please !</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>Tel</mat-label>
+        <input matInput type="text" formControlName="tel" />
+    </mat-form-field>
+
+    <button type="submit" mat-raised-button>Start Order !</button>
+</form>
