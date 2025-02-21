@@ -1,4 +1,4 @@
-<p>Welcome {{ orderService.name() }} !</p>
+<p>Welcome {{ name$ | async }} !</p>
 
 <!-- <app-toppings [toppings]="toppings" /> -->
 @if (toppings$ | async; as toppings) {

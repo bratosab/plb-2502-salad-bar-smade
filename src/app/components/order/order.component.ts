@@ -5,6 +5,9 @@ import { OrderService } from '../../services/order.service';
 import { MatFormField, MatLabel, MatError } from '@angular/material/form-field';
 import { MatInput } from '@angular/material/input';
 import { MatButton } from '@angular/material/button';
+import { Store } from '@ngrx/store';
+import { SetName, SetTel } from '../../store/app.actions';
+import { AppState } from '../../store/app.state';
 
 @Component({
     selector: 'app-order',
@@ -22,7 +25,8 @@ import { MatButton } from '@angular/material/button';
 export class OrderComponent {
   public orderForm: FormGroup;
   private router = inject(Router);
-  private orderService = inject(OrderService);
+  // private orderService = inject(OrderService);
+  private store = inject<Store<{ app: AppState }>>(Store)
 
   constructor(fb: FormBuilder) {
     this.orderForm = fb.group({
@@ -33,8 +37,10 @@ export class OrderComponent {
 
   public startOrder() {
     if (this.orderForm.valid) {
-      this.orderService.name.set(this.orderForm.value.name);
-      this.orderService.tel.set(this.orderForm.value.tel);
+      // this.orderService.name.set(this.orderForm.value.name);
+      // this.orderService.tel.set(this.orderForm.value.tel);
+      this.store.dispatch(SetName({ name: this.orderForm.value.name }))
+      this.store.dispatch(SetTel({ tel: this.orderForm.value.tel }))
       this.router.navigate(['salad']);
     }
   }
