@@ -3,12 +3,18 @@ import { OrderService } from '../services/order.service';
 import { ToppingsService } from '../services/toppings.service';
 import { Topping } from '../models/topping.model';
 import { Observable } from 'rxjs';
+import { ToppingsComponent } from './toppings/toppings.component';
+import { AsyncPipe, CurrencyPipe } from '@angular/common';
 
 @Component({
-  selector: 'app-salad',
-  standalone: false,
-  templateUrl: './salad.component.html',
-  styleUrl: './salad.component.scss',
+    selector: 'app-salad',
+    templateUrl: './salad.component.html',
+    styleUrl: './salad.component.scss',
+    imports: [
+        ToppingsComponent,
+        AsyncPipe,
+        CurrencyPipe,
+    ],
 })
 export class SaladComponent implements OnInit {
   public orderService = inject(OrderService);

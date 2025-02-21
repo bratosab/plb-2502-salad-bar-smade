@@ -7,13 +7,9 @@ import { ToppingsComponent } from './toppings/toppings.component';
 
 
 @NgModule({
-  declarations: [
-    SaladComponent,
-    ToppingsComponent
-  ],
-  imports: [
-    CommonModule,
-    SaladRoutingModule
-  ]
+    imports: [
+        CommonModule,
+        SaladRoutingModule,
+    ]
 })
 export class SaladModule { }

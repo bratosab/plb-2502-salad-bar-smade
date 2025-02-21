@@ -6,12 +6,10 @@ import { KitchenComponent } from './kitchen.component';
 
 
 @NgModule({
-  declarations: [
-    KitchenComponent
-  ],
-  imports: [
-    CommonModule,
-    KitchenRoutingModule
-  ]
+    imports: [
+        CommonModule,
+        KitchenRoutingModule,
+        KitchenComponent
+    ]
 })
 export class KitchenModule { }
